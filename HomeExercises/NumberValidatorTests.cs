@@ -19,16 +19,16 @@ namespace HomeExercises
         [Test]
         public void Constructor_DoesNotThrowException_WithPositivePrecisionAndNonNegativeScale()
         {
-            Action action = () => new NumberValidator(1, 0, true);
-            action.ShouldNotThrow<ArgumentException>();
+            Action test = () => new NumberValidator(1, 0, true);
+            test.ShouldNotThrow<ArgumentException>();
 
         }
 
         [Test]
         public void Constructor_ThrowsArgumentException_WhenPrecisionIsNotPositive()
         {
-            Action action = () => new NumberValidator(0, 2);
-            action.ShouldThrow<ArgumentException>("because precision is zero");
+            Action test = () => new NumberValidator(0, 2);
+            test.ShouldThrow<ArgumentException>("because precision is zero");
         }
 
         [Test]
@@ -95,7 +95,7 @@ namespace HomeExercises
         }
 
         [Test]
-        public void IsValidNumber_True_WhenScaleNumberLengthUnderPrecisionAndFracPartUnderScale()
+        public void IsValidNumber_True_WhenNumberLengthUnderPrecisionAndFracPartUnderScale()
         {
             new NumberValidator(17, 2, true).IsValidNumber("123456789.01").Should().BeTrue();
         }
